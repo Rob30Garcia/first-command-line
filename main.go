@@ -7,9 +7,17 @@ import (
 	"strings"
 )
 
+// Códigos ANSI para colorir texto
+const (
+	CorVerde = "\033[32m"
+	CorAzul  = "\033[34m"
+	CorReset = "\033[0m"
+)
+
 func main() {
 	// Define uma flag chamada "uppercase"
 	uppercase := flag.Bool("uppercase", false, "Exibe a mensagem em letras maiusculas")
+	fancy := flag.Bool("fancy", false, "Estiliza a saudação com cor e emoji")
 
 	// Parsei as flags asntes de ler os args
 	flag.Parse()
@@ -35,6 +43,10 @@ func main() {
 
 	if *uppercase {
 		message = strings.ToUpper(message)
+	}
+
+	if *fancy {
+		message = fmt.Sprintf("%s########## %s%s%s ##########%s", CorAzul, CorVerde, message, CorAzul, CorReset)
 	}
 
 	fmt.Println(message)
