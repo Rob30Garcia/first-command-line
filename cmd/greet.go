@@ -5,6 +5,7 @@ package cmd
 
 import (
 	"firstcommandline/main.go/ui"
+	"fmt"
 
 	"github.com/spf13/cobra"
 )
@@ -21,12 +22,12 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) == 0 {
-			ui.PrintWarning("Quem você quer cumprimentar?")
+			fmt.Fprintln(cmd.OutOrStdout(), "⚠️", ui.PrintWarning("Nome não fornecido"))
 			return
 		}
 		name := args[0]
-		ui.PrintSucess("Olá, " + name + "!")
-		ui.PrintInfo("Bem-vindo ao CLI mais estiloso em Go 😎")
+		fmt.Fprintln(cmd.OutOrStdout(), "✅ "+ui.PrintSucess("Olá, "+name+"!"))
+		fmt.Fprintln(cmd.OutOrStdout(), "ℹ️", ui.PrintInfo("Bem-vindo ao CLI mais estiloso em Go 😎"))
 	},
 }
 

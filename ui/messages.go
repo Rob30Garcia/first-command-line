@@ -1,8 +1,6 @@
 package ui
 
 import (
-	"fmt"
-
 	"github.com/fatih/color"
 )
 
@@ -13,18 +11,18 @@ var (
 	infoColor   = color.New(color.FgBlue).SprintFunc()
 )
 
-func PrintSucess(msg string) {
-	fmt.Println("✅", sucessColor(msg))
+func PrintSucess(msg string) string {
+	return sucessColor(msg)
 }
 
-func PrintError(msg string) {
-	fmt.Println("❌", errorColor(msg))
+func PrintError(msg string) string {
+	return errorColor(msg)
 }
 
-func PrintWarning(msg string) {
-	fmt.Println("⚠️", warnColor(msg))
+func PrintWarning(msg string) string {
+	return warnColor(msg)
 }
 
-func PrintInfo(msg string) {
-	fmt.Println("ℹ️", infoColor(msg))
+func PrintInfo(msg string) string {
+	return infoColor(msg)
 }
