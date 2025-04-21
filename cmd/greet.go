@@ -29,8 +29,12 @@ to quickly create a Cobra application.`,
 
 		verde := color.New(color.FgGreen).SprintFunc()
 		azul := color.New(color.FgBlue).SprintFunc()
+		negrito := color.New(color.FgYellow, color.Bold).SprintFunc()
+		italico := color.New(color.Italic, color.FgCyan).SprintFunc()
 
 		fmt.Printf("%s %s\n", verde("Olá, "+name+"!"), azul("Bem-vindo!"))
+		fmt.Println(negrito("Mensagem em negrito amarelo"))
+		fmt.Println(italico("Mensagem em itálico ciano"))
 	},
 }
 
