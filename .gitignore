@@ -1,3 +1,9 @@
 # Diretório de saída padrão (se usado)
 bin/
 build/
+
+# Diretórios gerados por IDEs/editors
+.idea/
+.vscode/
+*.swp
+*~

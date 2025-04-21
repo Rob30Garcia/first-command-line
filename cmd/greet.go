@@ -4,9 +4,8 @@ Copyright © 2025 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
-	"fmt"
+	"firstcommandline/main.go/ui"
 
-	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 )
 
@@ -22,19 +21,12 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) == 0 {
-			fmt.Printf("Quem você quer cumprimentar?")
+			ui.PrintWarning("Quem você quer cumprimentar?")
 			return
 		}
 		name := args[0]
-
-		verde := color.New(color.FgGreen).SprintFunc()
-		azul := color.New(color.FgBlue).SprintFunc()
-		negrito := color.New(color.FgYellow, color.Bold).SprintFunc()
-		italico := color.New(color.Italic, color.FgCyan).SprintFunc()
-
-		fmt.Printf("%s %s\n", verde("Olá, "+name+"!"), azul("Bem-vindo!"))
-		fmt.Println(negrito("Mensagem em negrito amarelo"))
-		fmt.Println(italico("Mensagem em itálico ciano"))
+		ui.PrintSucess("Olá, " + name + "!")
+		ui.PrintInfo("Bem-vindo ao CLI mais estiloso em Go 😎")
 	},
 }
 
