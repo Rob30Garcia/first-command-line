@@ -6,6 +6,7 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 )
 
@@ -25,7 +26,11 @@ to quickly create a Cobra application.`,
 			return
 		}
 		name := args[0]
-		fmt.Printf("Olá, %s! Bem-vindo!\n", name)
+
+		verde := color.New(color.FgGreen).SprintFunc()
+		azul := color.New(color.FgBlue).SprintFunc()
+
+		fmt.Printf("%s %s\n", verde("Olá, "+name+"!"), azul("Bem-vindo!"))
 	},
 }
 
